@@ -29,4 +29,9 @@ jobs:
         run: dart analyze --fatal-infos --fatal-warnings .
 
       - name: Run regression tests
-        run: dart test -x ipv6
+        run: dart test -x ipv6 --coverage .
+
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
